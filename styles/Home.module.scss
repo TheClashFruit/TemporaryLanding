@@ -126,48 +126,6 @@
       display: flex;
 
       gap: .5rem;
-
-      > input {
-        padding: .5rem 1rem;
-
-        border: 1px solid $colorBorderLight1;
-        border-radius: 0.25rem;
-
-        background: transparent;
-        color: $colorTextLight1;
-
-        transition: 150ms;
-
-        &:focus {
-          border-color: $colorPrimary;
-
-          outline: none;
-        }
-
-        @media (prefers-color-scheme: dark) {
-          border-color: $colorBorderDark1;
-          color: $colorTextDark1;
-        }
-      }
-
-      > button {
-        padding: .5rem 1rem;
-
-        border: 1px solid $colorPrimary;
-        border-radius: 0.25rem;
-
-        background: $colorPrimary;
-        color: $colorSurfaceLight1;
-
-        transition: 150ms;
-
-        cursor: pointer;
-
-        &:hover {
-          background: transparent;
-          color: $colorPrimary;
-        }
-      }
     }
 
     @media (max-width: 768px) {

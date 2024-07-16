@@ -6,6 +6,7 @@ import { Outfit } from 'next/font/google';
 import styles from '@/styles/Home.module.scss';
 import { Github, Mail, MessageSquare } from 'lucide-react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const outfit = Outfit({
   subsets: [
@@ -15,6 +16,32 @@ const outfit = Outfit({
 });
 
 export default function Home() {
+  const router = useRouter();
+
+  const onSubmit = async (e: any) => {
+    e.preventDefault();
+
+    const data = new FormData(e.target);
+
+    const f = await fetch('/api/subscribe', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: data.get('email'),
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    const r = await f.json();
+
+    if (r.error) {
+      alert(r.error);
+    } else {
+      router.push('/subscription?token=' + r.token);
+    }
+  };
+
   return (
     <>
       <Head>
@@ -130,7 +157,7 @@ export default function Home() {
               <p>This page is <Link href="https://github.com/ZleedApp/TemporaryLanding">open-source</Link>.</p>
             </div>
 
-            <form>
+            <form onSubmit={onSubmit}>
               <input type="email" placeholder="Email Address" name="email" />
               <button type="submit">Subscribe</button>
             </form>
