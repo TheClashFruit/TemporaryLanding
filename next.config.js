@@ -12,6 +12,16 @@ const nextConfig = {
   },
   generateBuildId: async () => {
     return childProcess.execSync('git rev-parse HEAD').toString().trim();
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'avatars.githubusercontent.com',
+        port: '',
+        pathname: '/u/**',
+      },
+    ],
   }
 };
 

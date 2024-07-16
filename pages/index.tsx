@@ -82,7 +82,43 @@ export default function Home() {
             <div className={styles.container}>
               <h2>Our Team</h2>
 
-              
+              <div className={styles.teamGrid}>
+                <div>
+                  <div>
+                    <Image src="https://avatars.githubusercontent.com/u/55049569?v=4" alt="TheClashFruit" width={128} height={128} quality={100} />
+
+                    <div>
+                      <h3>
+                        TheClashFruit
+                      </h3>
+
+                      <p>Founder & Lead Developer</p>
+                    </div>
+                  </div>
+
+                  <p>
+                    A full-stack web, mobile developer & mod creator.
+                  </p>
+                </div>
+
+                <div>
+                  <div>
+                    <Image src="https://avatars.githubusercontent.com/u/156634440?v=4" alt="Myadeleines" width={128} height={128} quality={100} />
+
+                    <div>
+                      <h3>
+                        Myadeleines
+                      </h3>
+
+                      <p>Lead Designer</p>
+                    </div>
+                  </div>
+
+                  <p>
+                    Person enjoying both art and computers.
+                  </p>
+                </div>
+              </div>
             </div>
           </section>
         </div>
