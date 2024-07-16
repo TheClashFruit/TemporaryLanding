@@ -1,0 +1,66 @@
+@import 'colors.module';
+
+* {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+
+  scrollbar-color: $colorPrimary $colorSurfaceLight1;
+
+  font-family: var(--outfit), sans-serif;
+
+  @media (prefers-color-scheme: dark) {
+    scrollbar-color: $colorPrimary $colorSurfaceDark1;
+  }
+}
+
+body {
+  background: $colorSurfaceLight1;
+  color: $colorTextLight1;
+
+  scrollbar-color: $colorPrimary $colorSurfaceLight1;
+
+  @media (prefers-color-scheme: dark) {
+    background: $colorSurfaceDark1;
+    color: $colorTextDark1;
+
+    scrollbar-color: $colorPrimary $colorSurfaceDark1;
+  }
+}
+
+h1 {
+  font-size: 300%;
+
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 200%;
+
+  font-weight: 700;
+
+  margin-bottom: 0.5rem;
+}
+
+p {
+  font-size: 110%;
+
+  font-weight: 400;
+}
+
+input, button {
+  font-size: 100%;
+
+  font-weight: 400;
+}
+
+a {
+  color: $colorPrimary;
+
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
