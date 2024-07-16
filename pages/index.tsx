@@ -25,7 +25,7 @@ export default function Home() {
         <meta name="name" content="Zleed" />
         <meta name="description" content="A free and open-source streaming platform."/>
         <meta name="keywords" content="zleed, streaming, rtmp, twitch, alternative"/>
-        <meta name="theme-color" content="#00796B"/>
+        <meta name="theme-color" content="#6366F1"/>
 
         <meta property="og:site_name" content="Zleed"/>
         <meta property="og:title" content="Zleed"/>
@@ -35,6 +35,12 @@ export default function Home() {
         <meta property="og:image" content="https://zleed.tv/img/social_image.png"/>
         <meta property="og:description" content="A free and open-source streaming platform."/>
 
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:domain" content="zleed.tv" />
+        <meta property="twitter:url" content="https://zleed.tv/" />
+        <meta name="twitter:title" content="Zleed" />
+        <meta name="twitter:description" content="A free and open-source streaming platform." />
+        <meta name="twitter:image" content="https://zleed.tv/img/social_image.png" />
       </Head>
       <main className={`${styles.main} ${outfit.variable}`}>
         <header className={styles.pageHeader}>
