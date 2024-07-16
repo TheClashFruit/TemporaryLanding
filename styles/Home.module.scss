@@ -228,14 +228,8 @@
     }
   }
 
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-
-    gap: 2rem;
-  }
-
   @media (max-width: 1000px) {
-    grid-template-columns: repeat(2, minmax(200px, 1fr));
+    grid-template-columns: 1fr;
 
     gap: 2rem;
   }
