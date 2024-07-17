@@ -10,6 +10,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   const subs = JSON.parse(subsData);
 
+  if (req.body.email == '' || !req.body.email) {
+    return res.status(400).json({ error: 'Email is required' });
+  }
+
   if (isEmailPresent(subs, req.body.email)) {
     return res.status(400).json({ error: 'Email already subscribed' });
   }
@@ -27,27 +31,31 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   console.log(process.env.API_KEY!!);
 
   // send welcome email
-  const mailgun = new Mailgun(FormData);
-  const mg = mailgun.client({
-    url: 'https://api.eu.mailgun.net',
-    username: 'api',
-    key: process.env.API_KEY!!
-  });
+  try {
+    const mailgun = new Mailgun(FormData);
+    const mg = mailgun.client({
+      url: 'https://api.eu.mailgun.net',
+      username: 'api',
+      key: process.env.API_KEY!!
+    });
 
-  const data = {
-    from: 'Zleed Newsletter <newsletter@mg.zleed.tv>',
-    to: req.body.email,
-    template: 'newsletter welcome',
-    'h:X-Mailgun-Variables': JSON.stringify({ token: subToken })
-  };
+    const data = {
+      from: 'Zleed Newsletter <newsletter@mg.zleed.tv>',
+      to: req.body.email,
+      template: 'newsletter welcome',
+      'h:X-Mailgun-Variables': JSON.stringify({ token: subToken })
+    };
 
-  await mg.messages.create('mg.zleed.tv', data);
+    await mg.messages.create('mg.zleed.tv', data);
 
-  await mg.lists.members.createMember('newsletter@mg.zleed.tv', {
-    address: req.body.email,
-    subscribed: true,
-    vars: JSON.stringify({ token: subToken })
-  });
+    await mg.lists.members.createMember('newsletter@mg.zleed.tv', {
+      address: req.body.email,
+      subscribed: true,
+      vars: JSON.stringify({ token: subToken })
+    });
+  } catch (e) {
+    return res.status(500).json({ error: 'Unexpected Error' });
+  }
 
   res.status(200).json({ token: subToken });
 }
