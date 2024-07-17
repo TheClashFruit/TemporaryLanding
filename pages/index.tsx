@@ -1,12 +1,17 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { Outfit } from 'next/font/google';
+import { useRouter } from 'next/router';
+import {
+  Github,
+  Mail,
+  MessageSquare
+} from 'lucide-react';
 
 import styles from '@/styles/Home.module.scss';
-import { Github, Mail, MessageSquare } from 'lucide-react';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
+import Meta from '@/components/Meta';
 
 const outfit = Outfit({
   subsets: [
@@ -44,31 +49,7 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <title>Zleed</title>
-
-        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-
-        <meta name="name" content="Zleed" />
-        <meta name="description" content="A free and open-source streaming platform."/>
-        <meta name="keywords" content="zleed, streaming, rtmp, twitch, alternative"/>
-        <meta name="theme-color" content="#6366F1"/>
-
-        <meta property="og:site_name" content="Zleed"/>
-        <meta property="og:title" content="Zleed"/>
-        <meta property="og:type" content="website"/>
-        <meta property="og:locale" content="en_GB"/>
-        <meta property="og:url" content="https://zleed.tv"/>
-        <meta property="og:image" content="https://zleed.tv/img/social_image.png"/>
-        <meta property="og:description" content="A free and open-source streaming platform."/>
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta property="twitter:domain" content="zleed.tv" />
-        <meta property="twitter:url" content="https://zleed.tv/" />
-        <meta name="twitter:title" content="Zleed" />
-        <meta name="twitter:description" content="A free and open-source streaming platform." />
-        <meta name="twitter:image" content="https://zleed.tv/img/social_image.png" />
-      </Head>
+      <Meta />
       <main className={`${styles.main} ${outfit.variable}`}>
         <header className={styles.pageHeader}>
           <div className={styles.container}>

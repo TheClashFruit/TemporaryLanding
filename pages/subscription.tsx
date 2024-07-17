@@ -4,6 +4,8 @@ import { Outfit } from 'next/font/google';
 import { NextRequest } from 'next/server';
 import path from 'path';
 
+import Meta from '@/components/Meta';
+
 const outfit = Outfit({
   subsets: [
     'latin'
@@ -38,23 +40,26 @@ export default function Home({ error, subData, token }: { error: boolean, subDat
   };
 
   return (
-    <main className={outfit.variable} style={{ height: '100svh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-      <h2>Edit Subscription Details</h2>
+    <>
+      <Meta />
+      <main className={outfit.variable} style={{ height: '100svh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+        <h2>Edit Subscription Details</h2>
 
-      { !error && (
-        <form style={{ display: 'flex', flexDirection: 'column', gap: '.5rem', width: 'min(100vw, 350px)' }} onSubmit={onSubmit}>
-          <input type="text" placeholder="Name" name="name" defaultValue={subData.name} />
+        { !error && (
+          <form style={{ display: 'flex', flexDirection: 'column', gap: '.5rem', width: 'min(100vw, 350px)' }} onSubmit={onSubmit}>
+            <input type="text" placeholder="Name" name="name" defaultValue={subData.name} />
 
-          <input type="email" placeholder="E-Mail Address" name="email" defaultValue={subData.email} />
+            <input type="email" placeholder="E-Mail Address" name="email" defaultValue={subData.email} />
 
-          <button type="submit">Save</button>
-        </form>
-      )}
+            <button type="submit">Save</button>
+          </form>
+        )}
 
-      { error && (
-        <p>Invalid subscription token.</p>
-      )}
-    </main>
+        { error && (
+          <p>Invalid subscription token.</p>
+        )}
+      </main>
+    </>
   );
 }
 

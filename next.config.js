@@ -9,6 +9,7 @@ const nextConfig = {
   },
   publicRuntimeConfig: {
     modifiedDate: new Date().getTime(),
+    buildId: childProcess.execSync('git rev-parse HEAD').toString().trim(),
   },
   generateBuildId: async () => {
     return childProcess.execSync('git rev-parse HEAD').toString().trim();
