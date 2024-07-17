@@ -134,7 +134,7 @@ export default function Home() {
 
                     <div>
                       <h3>
-                        Myadeleines
+                        Choco-Madeleines
                       </h3>
 
                       <p>Lead Designer</p>
