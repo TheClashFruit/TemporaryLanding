@@ -111,11 +111,11 @@ export default function Home() {
 
                 <div>
                   <div>
-                    <Image src="https://avatars.githubusercontent.com/u/156634440?v=4" alt="Myadeleines" width={128} height={128} quality={100} />
+                    <Image src="https://avatars.githubusercontent.com/u/162138753?v=4" alt="ChocoMadeleines" width={128} height={128} quality={100} />
 
                     <div>
                       <h3>
-                        Choco-Madeleines
+                        ChocoMadeleines
                       </h3>
 
                       <p>Lead Designer</p>
@@ -123,7 +123,7 @@ export default function Home() {
                   </div>
 
                   <p>
-                    Person enjoying both art and computers.
+                    A person enjoying art, cats, and computers.
                   </p>
                 </div>
               </div>
